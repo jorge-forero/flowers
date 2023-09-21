@@ -16,7 +16,7 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
+	<body class="not-loaded" onload='()=>{let e=setTimeout(()=>{document.body.classList.remove("not-loaded"),clearTimeout(e)},1e3)};''>
 		<slot />
 	</body>
 </html>
