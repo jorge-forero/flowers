@@ -2,19 +2,14 @@
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 
-// onload = () => {
-//     const c = setTimeout(() => {
-//       document.body.classList.remove("not-loaded");
-//       clearTimeout(c);
-//     }, 1000);
-//   };
-
 ---
 
 <Layout title="Flowers">
 	<main>
 		<div class="night">
-			<div>TE amo</div>
+			<h2 class="delayed">Se que no pude mandarte tus flores amarillas hoy,</h2>
+      <h3 class="delayed">por eso te las programe</h3>
+      <h1 class="delayed"><span class="text-gradient">Te amo Karla</span></h1>
 		</div>
 		
 		<div class="flowers">
@@ -345,20 +340,68 @@ import Card from '../components/Card.astro';
 	// 	height: auto;
 	// 	z-index: -1;
 	// }
-	// h1 {
-	// 	font-size: 4rem;
-	// 	font-weight: 700;
-	// 	line-height: 1;
-	// 	text-align: center;
-	// 	margin-bottom: 1em;
-	// }
-	// .text-gradient {
-	// 	background-image: var(--accent-gradient);
-	// 	-webkit-background-clip: text;
-	// 	-webkit-text-fill-color: transparent;
-	// 	background-size: 400%;
-	// 	background-position: 0%;
-	// }
+	h1 {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 1em;
+    //visibility: hidden;
+	}
+
+  @keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1 {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeIn 1s ease-in-out 8.5s forwards;
+  // animation-name   | duration | timing-function | delay
+  //                 | 1s       | ease-in-out    | 6s
+  //                        | fill-mode (forwards)
+}
+
+h2, h3 {
+  
+  opacity: 0;
+  transform: translateY(-20px);
+  
+  // animation-name   | duration | timing-function | delay
+  //                 | 1s       | ease-in-out    | 6s
+  //                        | fill-mode (forwards)
+}
+
+h2 {
+  padding-top: 50px;
+  animation: fadeIn 1s ease-in-out 4s forwards;
+}
+h3 {
+  animation: fadeIn 1s ease-in-out 6s forwards;
+}
+  h2, h3 {
+		font-size: 2rem;
+		font-weight: 500;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 1em;
+    color: white;
+    //visibility: hidden;
+	}
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
 	// .instructions {
 	// 	margin-bottom: 2rem;
 	// 	border: 1px solid rgba(var(--accent-light), 25%);
@@ -1262,6 +1305,23 @@ body {
 
       &--8 {
         animation-delay: 3.5s !important;
+      }
+
+      @keyframes delayed {
+  to {
+    visibility: visible;
+  }
+}
+
+
+
+      h1 {
+        visibility: hidden;
+        animation-delay: 7.5s !important;
+      }
+      h2 {
+        visibility: hidden;
+        animation-delay: 6.5s !important;
       }
 
       @keyframes flower__g-front__leaf-ans {
